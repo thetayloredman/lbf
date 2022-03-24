@@ -31,6 +31,8 @@ The preprocessor is responsible for removing comments and handling these directi
 
 `@@include` directly includes another file in your code. Modules are recursively resolved. There is no namespace management for `@@include`d files.
 
+**Notice to interpreter devs:** Remove the `@lbf-version` line from includes, but ensure it matches this file's version! Error if not.
+
 Example usage:
 
 ```
@@ -78,6 +80,10 @@ Prints a newline. **This modifies your current pointer.**
 ### Processor directives
 
 These directives begin in `@` and are written directly as part of the bytecode. They can be used for more advanced state storage and similar things, and are not handled by the preprocessor.
+
+#### `@lbf-version <num>`
+
+This must be the first line of the file. Otherwise, error. This processor directive is to define the lbf version to be used.
 
 #### None are defined at this time.
 
