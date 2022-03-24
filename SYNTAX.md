@@ -47,19 +47,31 @@ Example usage:
 
 #### `@@add <num>`
 
-Adds `<num>` to the current pointer. Used as a shortcut. Resolves to `<num>` x `+`.
+Adds `<num>` to the current pointer. Used as a shortcut. Resolves to `<num>` x `+`. **This modifies your current pointer.**
 
 #### `@@sub <num>`
 
-Subtracts `<num>` from the current pointer. Used as a shortcut. Resolves to `<num>` x `-`.
+Subtracts `<num>` from the current pointer. Used as a shortcut. Resolves to `<num>` x `-`. **This modifies your current pointer.**
+
+#### `@@reset`
+
+Resolves to `[-]`, to clear the pointer. **This modifies your current pointer.**
 
 #### `@@set <val>`
 
-Sets the current pointer to `<val>`. Used as a shortcut for `[-]` along with `@@add <val>`
+Sets the current pointer to `<val>`. Used as a shortcut for `[-]` or `@@reset` along with `@@add <val>` **This modifies your current pointer.**
 
 #### `@@set-ascii <char>`
 
-An equivilent to `@@set` with the ASCII value of `<char>`.
+An equivilent to `@@set` with the ASCII value of `<char>`. Use `@@set-ascii  ` with TWO SPACES AT THE END for a space. **This modifies your current pointer.**
+
+#### `@@print-ascii <string>`
+
+Print out `<string>`. Equivilent to a bunch of `@@set-ascii`s with `.` commands. **This modifies your current pointer.**
+
+#### `@@newline`
+
+Prints a newline. **This modifies your current pointer.**
 
 ### Processor directives
 
