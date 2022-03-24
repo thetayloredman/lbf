@@ -14,7 +14,60 @@ The program has a list of 5-million unsigned 8-bit integers in it's access.
 
 ## Processing
 
-Processor directives are prefixed with `@`. These directives are not defined at this time. They will be used for importing different bytecode modules soon.
+Processor and pre-processor directives are prefixed with `@`. These directives are not defined at this time. They will be used for importing different bytecode modules soon.
+
+### Preprocessor directives
+
+Preprocessor directives begin in `@@`.
+The preprocessor is responsible for removing comments and handling these directives.
+
+> **PREPROCESSERS MUST RESOLVE RECURSIVELY.**
+>
+> After processing once, re-process the files, so that we don't need to handle the recursives.
+
+#### `@@include`
+
+`@@include` directly includes another file in your code. Modules are recursively resolved. There is no namespace management for `@@include`d files.
+
+Example usage:
+
+```
+# file1.lbf
+# Sets next register to 15.
++++[>+++++<-]
+
+# file2.lbf
+@@include ./file1.lbf
+>-
+
+### OUTPUT
++++[>+++++<-]
+>-
+```
+
+#### `@@add <num>`
+
+Adds `<num>` to the current pointer. Used as a shortcut. Resolves to `<num>` x `+`.
+
+#### `@@sub <num>`
+
+Subtracts `<num>` from the current pointer. Used as a shortcut. Resolves to `<num>` x `-`.
+
+#### `@@set <val>`
+
+Sets the current pointer to `<val>`. Used as a shortcut for `[-]` along with `@@add <val>`
+
+#### `@@set-ascii <char>`
+
+An equivilent to `@@set` with the ASCII value of `<char>`.
+
+### Processor directives
+
+These directives begin in `@` and are written directly as part of the bytecode. They can be used for more advanced state storage and similar things, and are not handled by the preprocessor.
+
+#### None are defined at this time.
+
+This will be used for fs access, default state loads etc soon.
 
 ## The List
 
