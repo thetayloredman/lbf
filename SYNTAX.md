@@ -1,4 +1,4 @@
-# lbf langage documentation
+# lbf v0 langage documentation
 
 lbf is a simple list-oriented programming language.
 
@@ -7,6 +7,8 @@ Sike! Not very simple.
 ## Program Context
 
 LBF files should *always* end in the extension `.lbf`.
+
+**LBF FILES MUST BEGIN WITH THE LINE:** `@lbf-version 0`
 
 They contain any characters, but the only things recognized by the interpreters are `<>[]+-.,@#`.
 
