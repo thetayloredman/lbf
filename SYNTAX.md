@@ -10,7 +10,7 @@ LBF files should *always* end in the extension `.lbf`.
 
 They contain any characters, but the only things recognized by the interpreters are `<>[]+-.,@#`.
 
-The program has a list of 5-million unsigned 8-bit integers in it's access.
+The program has a list of 50k unsigned 8-bit integers in it's access.
 
 ## Processing
 
