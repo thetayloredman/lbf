@@ -20,34 +20,12 @@ Processor and pre-processor directives are prefixed with `@`. These directives a
 
 ### Preprocessor directives
 
-Preprocessor directives begin in `@@`.
+Preprocessor directives begin in `@@`. They must be on their own line.
 The preprocessor is responsible for removing comments and handling these directives.
 
 > **PREPROCESSERS MUST RESOLVE RECURSIVELY.**
 >
-> After processing once, re-process the files, so that we don't need to handle the recursives.
-
-#### `@@include`
-
-`@@include` directly includes another file in your code. Modules are recursively resolved. There is no namespace management for `@@include`d files.
-
-**Notice to interpreter devs:** Remove the `@lbf-version` line from includes, but ensure it matches this file's version! Error if not.
-
-Example usage:
-
-```
-# file1.lbf
-# Sets next register to 15.
-+++[>+++++<-]
-
-# file2.lbf
-@@include ./file1.lbf
->-
-
-### OUTPUT
-+++[>+++++<-]
->-
-```
+> After processing once, re-process the files, so that we don't need to handle the recursive results.
 
 #### `@@add <num>`
 
@@ -69,9 +47,9 @@ Sets the current pointer to `<val>`. Used as a shortcut for `[-]` or `@@reset` a
 
 An equivilent to `@@set` with the ASCII value of `<char>`. Use `@@set-ascii  ` with TWO SPACES AT THE END for a space. **This modifies your current pointer.**
 
-#### `@@print-ascii <string>`
+#### `@@print-ascii <char>`
 
-Print out `<string>`. Equivilent to a bunch of `@@set-ascii`s with `.` commands. **This modifies your current pointer.**
+Print out `<char>`. Equivalent to doing `@@set-ascii <char>` and then `.`. **This modifies your current pointer.**
 
 #### `@@newline`
 
@@ -85,7 +63,7 @@ These directives begin in `@` and are written directly as part of the bytecode. 
 
 This must be the first line of the file. Otherwise, error. This processor directive is to define the lbf version to be used.
 
-#### None are defined at this time.
+#### None are defined at this time
 
 This will be used for fs access, default state loads etc soon.
 
