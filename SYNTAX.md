@@ -45,7 +45,7 @@ Sets the current pointer to `<val>`. Used as a shortcut for `[-]` or `@@reset` a
 
 #### `@@set-ascii <char>`
 
-An equivilent to `@@set` with the ASCII value of `<char>`. Use `@@set-ascii  ` with TWO SPACES AT THE END for a space. **This modifies your current pointer.**
+An equivalent to `@@set` with the ASCII value of `<char>`. Use `@@set-ascii  ` with TWO SPACES AT THE END for a space. **This modifies your current pointer.**
 
 #### `@@print-ascii <char>`
 
@@ -78,3 +78,4 @@ Using `<` and `>` rotates the pointer.
 `.` will print the ASCII value. `,` reads one.
 
 `#` is a single-line comment.
+Anything not on this list is also treated as a comment (excluding lines that start with `@`)
